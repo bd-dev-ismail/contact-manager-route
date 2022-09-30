@@ -1,17 +1,20 @@
 import React from 'react';
+import ContactCard from '../ContactCard/ContactCard';
 import './ContactList.css';
-const ContactList = ({contact}) => {
-    const {name, email} = contact;
-    return (
-      <div className="w-96 mx-auto">
-        <div className="border-4">
-          <h3>{name}</h3>
-          <p>{email}</p>
-          <div className="btn btn-sm">Delete</div>
-        </div>
-        <i class="fa-solid fa-trash-can-xmark"></i>
+const ContactList = ({ conatactList, removeContact }) => {
+  return (
+    <>
+      <div className="w-[28rem] mx-auto">
+        {conatactList.length < 1 && <p>No Contact Add yet</p>}
+        {conatactList.map((contact) => (
+          <ContactCard
+            contact={contact}
+            removeContact={removeContact}
+          ></ContactCard>
+        ))}
       </div>
-    );
+    </>
+  );
 };
 
 export default ContactList;
