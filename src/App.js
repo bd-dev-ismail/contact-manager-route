@@ -31,14 +31,20 @@ function App() {
      setEmail('');
   }
   //delete
-  const removeContact = (name) =>{
-    console.log(name);
+  const removeContact = (email) =>{
+    const updateContact = conatactList.filter(element =>{
+      return element.email !== email;
+    });
+    setConatactList(updateContact);
+  }
+  const removeAll = () =>{
+    setConatactList([]);
   }
   useEffect(() => {
     localStorage.setItem("contact", JSON.stringify(conatactList));
   }, [conatactList]);
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto" style={{width: '100%'}}>
       <Header />
       <AddContact
         name={name}
@@ -50,6 +56,7 @@ function App() {
       <ContactList
         conatactList={conatactList}
         removeContact={removeContact}
+        removeAll={removeAll}
       ></ContactList>
     </div>
   );
