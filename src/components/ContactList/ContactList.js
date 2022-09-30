@@ -1,7 +1,12 @@
 import React from 'react';
 import ContactCard from '../ContactCard/ContactCard';
 import './ContactList.css';
-const ContactList = ({ conatactList, removeContact, removeAll }) => {
+const ContactList = ({
+  conatactList,
+  removeContact,
+  removeAll,
+  ToastContainer,
+}) => {
   return (
     <>
       <div className="w-[28rem] mx-auto my-5 ">
@@ -21,6 +26,7 @@ const ContactList = ({ conatactList, removeContact, removeAll }) => {
             {" "}
             Remove All
           </button>
+          <ToastContainer></ToastContainer>
         </div>
       </div>
     </>

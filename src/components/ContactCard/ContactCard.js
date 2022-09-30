@@ -1,7 +1,7 @@
 import React from 'react';
-
 const ContactCard = ({ contact, removeContact }) => {
   const { name, email } = contact;
+  
   return (
     <>
       <div className="p-4 rounded bg-base-300 flex justify-between items-center my-4">
@@ -17,11 +17,12 @@ const ContactCard = ({ contact, removeContact }) => {
         <div
           className="btn btn-sm btn-primary"
           onClick={() => removeContact(contact.email)}
+       
         >
           Remove
+          
         </div>
       </div>
-      
     </>
   );
 };

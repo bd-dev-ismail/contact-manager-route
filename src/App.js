@@ -4,7 +4,9 @@ import './App.css';
 import AddContact from './components/AddContact/AddContact';
 import ContactList from './components/ContactList/ContactList';
 import Header from './components/Header/Header';
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Swal from "sweetalert2";
 function App() {
     const getContact = () => {
       const data = localStorage.getItem("contact");
@@ -34,17 +36,20 @@ function App() {
   const removeContact = (email) =>{
     const updateContact = conatactList.filter(element =>{
       return element.email !== email;
+      
     });
     setConatactList(updateContact);
+    toast("Wow so easy!");
   }
   const removeAll = () =>{
     setConatactList([]);
+    Swal.fire("Hurray!", "You Delete All Contact!", "success");
   }
   useEffect(() => {
     localStorage.setItem("contact", JSON.stringify(conatactList));
   }, [conatactList]);
   return (
-    <div className="container mx-auto" style={{width: '100%'}}>
+    <div className="container mx-auto" style={{ width: "100%" }}>
       <Header />
       <AddContact
         name={name}
@@ -57,6 +62,7 @@ function App() {
         conatactList={conatactList}
         removeContact={removeContact}
         removeAll={removeAll}
+        ToastContainer={ToastContainer}
       ></ContactList>
     </div>
   );
