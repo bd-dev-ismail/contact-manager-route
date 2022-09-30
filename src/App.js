@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+
 import './App.css';
+import AddContact from './components/AddContact/AddContact';
+import ContactList from './components/ContactList/ContactList';
+import Header from './components/Header/Header';
 
 function App() {
+  const conatactList = [
+    {
+      id: 1,
+      "name": "Md Ismai Hossen",
+      "email": "ismailratul7@gmail.com"
+    },
+    {
+      id: 2,
+      "name": "Nowshin Akther",
+      "email": "nowrinratul@gmail.com"
+    },
+  ]
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container mx-auto">
+      <Header />
+      <AddContact />
+      {conatactList.map((contact) => (
+        <ContactList
+         contact={contact}
+         key={contact.id}
+        />
+      ))}
     </div>
   );
 }
