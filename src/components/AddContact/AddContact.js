@@ -1,11 +1,15 @@
+import { ArrowLongRightIcon } from '@heroicons/react/24/solid';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './AddContact.css';
 const AddContact = ({ name, email, setEmail, setName, handalSubmit }) => {
   return (
     <div className="ml-[70px] lg:m-0">
-      <div className='text-error text-xl mt-3'>
-        <Link to="/home" className='mr-5'>Home</Link>
+      <div className="text-error text-xl mt-3 flex items-center">
+        <ArrowLongRightIcon className="h-12 w-12 mr-5 text-error" />
+        <Link to="/home" className="mr-5">
+          Home
+        </Link>
         <Link to="/contact">Contact</Link>
       </div>
       <h2 className="text-3xl py-4">Add To Contact</h2>

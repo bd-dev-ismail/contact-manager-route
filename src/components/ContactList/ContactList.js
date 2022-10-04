@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ArrowLongRightIcon,  } from "@heroicons/react/24/solid";
 import ContactCard from '../ContactCard/ContactCard';
 import './ContactList.css';
 const ContactList = ({
@@ -10,7 +11,8 @@ const ContactList = ({
 }) => {
   return (
     <>
-      <div className="text-error text-xl mt-3">
+      <div className="text-error text-xl mt-3 flex items-center">
+        <ArrowLongRightIcon className="h-12 w-12 mr-5 text-error" />
         <Link to="/home" className="mr-5">
           Home
         </Link>
