@@ -23,7 +23,7 @@ const ContactList = ({
           Contact
         </NavLink>
       </div>
-      <div className="w-[28rem] mx-auto my-5 ">
+      <div className="lg:w-[28rem] w-full mx-auto my-5 ">
         {conatactList.length < 1 && (
           <p className="bg-base-300 p-4 rounded text-2xl text-center ">
             No Contact Add yet

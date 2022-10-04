@@ -5,7 +5,7 @@ import './AddContact.css';
 const AddContact = ({ name, email, setEmail, setName, handalSubmit }) => {
   
   return (
-    <div className="ml-[70px] lg:m-0">
+    <div className="lg:ml-[70px] ml-[20px] mr-[20px] lg:m-0">
       <div className="text-error text-xl mt-3 flex items-center">
         <ArrowLongRightIcon className="h-12 w-12 mr-5 text-error" />
         <NavLink
