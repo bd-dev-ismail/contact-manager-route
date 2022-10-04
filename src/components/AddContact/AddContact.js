@@ -1,16 +1,22 @@
 import { ArrowLongRightIcon } from '@heroicons/react/24/solid';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink,  } from 'react-router-dom';
 import './AddContact.css';
 const AddContact = ({ name, email, setEmail, setName, handalSubmit }) => {
+  
   return (
     <div className="ml-[70px] lg:m-0">
       <div className="text-error text-xl mt-3 flex items-center">
         <ArrowLongRightIcon className="h-12 w-12 mr-5 text-error" />
-        <Link to="/home" className="mr-5">
+        <NavLink
+          className={({ isActive }) =>
+            isActive ? "underline underline-offset-8" : undefined
+          }
+          to="/home"
+        >
           Home
-        </Link>
-        <Link to="/contact">Contact</Link>
+        </NavLink>
+        <NavLink className="ml-5" to="/contact">Contact</NavLink>
       </div>
       <h2 className="text-3xl py-4">Add To Contact</h2>
       <form action="#" onSubmit={handalSubmit}>
@@ -41,9 +47,7 @@ const AddContact = ({ name, email, setEmail, setName, handalSubmit }) => {
           />
         </div>
         <div className="text-center my-3">
-          <Link to="/contact">
-            <button className="btn btn-primary">Add To Contact</button>
-          </Link>
+          <button className="btn btn-primary">Add To Contact</button>
         </div>
       </form>
     </div>

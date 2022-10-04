@@ -3,12 +3,12 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import AddContact from './components/AddContact/AddContact';
 import ContactList from './components/ContactList/ContactList';
-import Header from './components/Header/Header';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Swal from "sweetalert2";
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider,  } from 'react-router-dom';
 import Main from './layout/Main';
+import Error from './components/Error/Error';
 function App() {
     const getContact = () => {
       const data = localStorage.getItem("contact");
@@ -41,7 +41,7 @@ function App() {
       
     });
     setConatactList(updateContact);
-    toast("Wow so easy!");
+    toast("You Remove a Item!");
   }
   const removeAll = () =>{
     setConatactList([]);
@@ -91,6 +91,10 @@ function App() {
           ),
         },
       ],
+    },
+    {
+      path: "*",
+      element: <Error></Error>,
     },
   ]);
   return (

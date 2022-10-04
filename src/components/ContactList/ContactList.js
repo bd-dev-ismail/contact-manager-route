@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { ArrowLongRightIcon,  } from "@heroicons/react/24/solid";
 import ContactCard from '../ContactCard/ContactCard';
 import './ContactList.css';
@@ -13,10 +13,15 @@ const ContactList = ({
     <>
       <div className="text-error text-xl mt-3 flex items-center">
         <ArrowLongRightIcon className="h-12 w-12 mr-5 text-error" />
-        <Link to="/home" className="mr-5">
+        <NavLink to="/home" className="mr-5">
           Home
-        </Link>
-        <Link to="/contact">Contact</Link>
+        </NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "underline underline-offset-8" : undefined)}
+          to="/contact"
+        >
+          Contact
+        </NavLink>
       </div>
       <div className="w-[28rem] mx-auto my-5 ">
         {conatactList.length < 1 && (
