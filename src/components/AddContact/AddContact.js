@@ -1,8 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './AddContact.css';
 const AddContact = ({ name, email, setEmail, setName, handalSubmit }) => {
   return (
     <div className="ml-[70px] lg:m-0">
+      <div className='text-error text-xl mt-3'>
+        <Link to="/home" className='mr-5'>Home</Link>
+        <Link to="/contact">Contact</Link>
+      </div>
       <h2 className="text-3xl py-4">Add To Contact</h2>
       <form action="#" onSubmit={handalSubmit}>
         <div>
@@ -32,7 +37,9 @@ const AddContact = ({ name, email, setEmail, setName, handalSubmit }) => {
           />
         </div>
         <div className="text-center my-3">
-          <button className="btn btn-primary">Add To Contact</button>
+          <Link to="/contact">
+            <button className="btn btn-primary">Add To Contact</button>
+          </Link>
         </div>
       </form>
     </div>

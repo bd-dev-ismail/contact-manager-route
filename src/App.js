@@ -7,6 +7,8 @@ import Header from './components/Header/Header';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Swal from "sweetalert2";
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Main from './layout/Main';
 function App() {
     const getContact = () => {
       const data = localStorage.getItem("contact");
@@ -48,22 +50,66 @@ function App() {
   useEffect(() => {
     localStorage.setItem("contact", JSON.stringify(conatactList));
   }, [conatactList]);
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Main></Main>,
+      children: [
+        {
+          path: "/",
+          element: (
+            <AddContact
+              name={name}
+              email={email}
+              setName={setName}
+              setEmail={setEmail}
+              handalSubmit={handalSubmit}
+            />
+          ),
+        },
+        {
+          path: "/home",
+          element: (
+            <AddContact
+              name={name}
+              email={email}
+              setName={setName}
+              setEmail={setEmail}
+              handalSubmit={handalSubmit}
+            />
+          ),
+        },
+        {
+          path: "/contact",
+          element: (
+            <ContactList
+              conatactList={conatactList}
+              removeContact={removeContact}
+              removeAll={removeAll}
+              ToastContainer={ToastContainer}
+            ></ContactList>
+          ),
+        },
+      ],
+    },
+  ]);
   return (
     <div className="container mx-auto" style={{ width: "100%" }}>
-      <Header />
-      <AddContact
+      
+      {/* <AddContact
         name={name}
         email={email}
         setName={setName}
         setEmail={setEmail}
         handalSubmit={handalSubmit}
-      />
-      <ContactList
+      /> */}
+      {/* <ContactList
         conatactList={conatactList}
         removeContact={removeContact}
         removeAll={removeAll}
         ToastContainer={ToastContainer}
-      ></ContactList>
+      ></ContactList> */}
+      <RouterProvider router={router}></RouterProvider>
     </div>
   );
 }
